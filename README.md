@@ -21,3 +21,8 @@ This project demonstrates how to replace those defaults with clean **JSON error 
   "status": "401 UNAUTHORIZED",
   "timestamp": "2025-09-27T09:41:21.124Z"
 }
+or
+{
+  "status": "403 FORBIDDEN",
+  "timestamp": "2025-09-27T09:42:03.567Z"
+}
