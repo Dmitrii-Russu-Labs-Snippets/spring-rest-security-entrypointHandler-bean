@@ -36,7 +36,8 @@ Spring Security 6+
 ```
 ./mvnw spring-boot:run
 ```
-##Test endpoints:
+
+###Test endpoints:
 
 Call a protected endpoint without authentication:
 ```
