@@ -21,8 +21,19 @@ This project demonstrates how to replace those defaults with clean **JSON error 
   "status": "401 UNAUTHORIZED",
   "timestamp": "2025-09-27T09:41:21.124Z"
 }
-or
+```
+```json
 {
   "status": "403 FORBIDDEN",
   "timestamp": "2025-09-27T09:42:03.567Z"
 }
+```
+## Tech Stack
+
+Java 25
+Spring Boot 3+
+Spring Security 6+
+
+## How to Run
+
+./mvnw spring-boot:run
