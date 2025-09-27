@@ -11,6 +11,7 @@ This project demonstrates how to replace those defaults with clean **JSON error 
 - 401 Unauthorized → handled by AuthenticationEntryPoint bean
 - 403 Forbidden → handled by AccessDeniedHandler bean
 - JSON responses include `status` and `timestamp`
+- Can be easily extended with extra fields (e.g., path, traceId)
 - Easy to integrate in larger Spring projects
 
 ## Example Error Response
