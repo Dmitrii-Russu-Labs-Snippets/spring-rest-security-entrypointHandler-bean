@@ -40,11 +40,15 @@ This repository demonstrates replacing those defaults with consistent JSON error
 
 Note: examples are minimal — in your project you can (and probably should) add message, path, and traceId for better observability.
 
+---
+
 ## How to Run
 
 ```
 ./mvnw spring-boot:run
 ```
+
+---
 
 ## Example curl
 
@@ -71,6 +75,8 @@ curl -i -u ann:1234 http://localhost:8080/auth/admin
 ```
 curl -i -u jack:123 http://localhost:8080/auth/admin
 ```
+
+---
 
 Related
 
