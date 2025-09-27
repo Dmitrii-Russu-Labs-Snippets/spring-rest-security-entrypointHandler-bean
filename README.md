@@ -1,67 +1,52 @@
 # Spring REST Security EntryPoint Handler (Bean)
 
-This project demonstrates custom Spring Security error handling using **Spring beans**.
+Custom `AuthenticationEntryPoint` and `AccessDeniedHandler` implemented as Spring **beans** and wired into `SecurityConfig`.  Returns clean JSON error responses for **401 Unauthorized** and **403 Forbidden**.
+
+---
 
 ## Overview
 
-By default, Spring Security returns either an HTML error page or a plain text message when authentication or authorization fails.  
-This project demonstrates how to replace those defaults with clean **JSON error responses**, making your API more consistent and client-friendly.
+By default Spring Security may return an HTML error page or plain text when authentication or authorization fails.  
+This repository demonstrates replacing those defaults with consistent JSON error responses produced by handlers declared as beans — a compact, DI-friendly approach suitable for larger Spring projects.
+
+---
 
 ## Features
-- 401 Unauthorized → handled by AuthenticationEntryPoint bean
-- 403 Forbidden → handled by AccessDeniedHandler bean
-- JSON responses include `status` and `timestamp`
-- Can be easily extended with extra fields (e.g., path, traceId)
-- Easy to integrate in larger Spring projects
 
-## Example Error Response
+- **401 Unauthorized** → handled by an `AuthenticationEntryPoint` bean  
+- **403 Forbidden** → handled by an `AccessDeniedHandler` bean  
+- JSON responses include `status` and `timestamp` (easy to extend with `path`, `message`, `traceId`)  
+- Handlers are implemented as beans (factory methods / `@Bean`) and registered via `http.exceptionHandling(...)`  
+- Easy to inject dependencies (e.g. `ObjectMapper`) and unit-test
 
+---
+## Example JSON responses
+
+**401 Unauthorized** (Content-Type: `application/json`)
 ```json
 {
-  "status": "403 FORBIDDEN",
-  "timestamp": "2025-09-27T09:42:03.567Z",
-  "path": "/auth/admin"
+  "status": 401,
+  "timestamp": "2025-09-27T09:41:21.124Z"
 }
-```
 
-## Tech Stack
+**403 Forbidden** (Content-Type: `application/json`)
+```json
+{
+  "status": 403,
+  "timestamp": "2025-09-27T09:41:21.124Z"
+}
 
-Java 25
-
-Spring Boot 3+
-
-Spring Security 6+
+Note: examples are minimal — in your project you can (and probably should) add message, path, and traceId for better observability.
 
 ## How to Run
 ```
 ./mvnw spring-boot:run
 ```
 
-`Test endpoints:`
 
-Call a protected endpoint without authentication:
-```
-curl http://localhost:8080/auth/user
-```
-You’ll get a next JSON error response:
-```json
-{
-  "status": "401 UNAUTHORIZED",
-  "timestamp": "2025-09-27T09:41:21.124Z"
-}
-```
-Call a protected endpoint without required role:
-```
-curl -u ann@gmail.com:1234 http://localhost:8080/auth/admin
-```
-You’ll get a next JSON error response:
-```json
-{
-  "status": "403 FORBIDDEN",
-  "timestamp": "2025-09-27T09:42:03.567Z"
-}
-```
 
-This project is a minimal reference implementation.
+Related
 
-You can copy and adapt the AuthenticationEntryPoint and AccessDeniedHandler into any Spring Boot REST API project.
+- spring-rest-security-entrypointHandler-component — handlers as separate components
+
+- spring-rest-security-entrypointHandler-lambda — compact implementation using lambdas in SecurityConfig
