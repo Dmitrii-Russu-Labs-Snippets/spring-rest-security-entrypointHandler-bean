@@ -31,9 +31,12 @@ This project demonstrates how to replace those defaults with clean **JSON error 
 ## Tech Stack
 
 Java 25
+
 Spring Boot 3+
+
 Spring Security 6+
 
 ## How to Run
-
+```
 ./mvnw spring-boot:run
+```
