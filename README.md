@@ -1,6 +1,6 @@
-# Spring Security JSON Errors
+# Spring REST Security EntryPoint Handler (Bean)
 
-Custom AuthenticationEntryPoint and AccessDeniedHandler for Spring Security to return clean JSON error responses (401 Unauthorized, 403 Forbidden).
+This project demonstrates custom Spring Security error handling using **Spring beans**.
 
 ## Overview
 
@@ -8,11 +8,10 @@ By default, Spring Security returns either an HTML error page or a plain text me
 This project demonstrates how to replace those defaults with clean **JSON error responses**, making your API more consistent and client-friendly.
 
 ## Features
-
-- `401 Unauthorized` → handled by a custom `AuthenticationEntryPoint`  
-- `403 Forbidden` → handled by a custom `AccessDeniedHandler`  
-- JSON responses include status and timestamp  
-- Can be easily extended with extra fields (e.g., `path`, `traceId`)
+- 401 Unauthorized → handled by AuthenticationEntryPoint bean
+- 403 Forbidden → handled by AccessDeniedHandler bean
+- JSON responses include `status` and `timestamp`
+- Easy to integrate in larger Spring projects
 
 ## Example Error Response
 
