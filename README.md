@@ -4,10 +4,12 @@ Custom `AuthenticationEntryPoint` and `AccessDeniedHandler` implemented as Sprin
 
 ---
 
-## Overview
+### spring-rest-security-entrypointHandler-bean
 
 By default Spring Security may return an HTML error page or plain text when authentication or authorization fails.  
-This repository demonstrates replacing those defaults with consistent JSON error responses produced by handlers declared as beans — a compact, DI-friendly approach suitable for larger Spring projects.
+This repository demonstrates replacing those defaults with consistent JSON error responses produced by handlers declared as beans — a compact, DI-friendly approach suitable for larger Spring projects.  
+
+Implementation difference vs other repos: handlers are provided as `@Bean` factory methods, rather than [implemented as separate @Component classes](https://github.com/Dmitrii-Russu-Labs-Snippets/spring-rest-security-entrypointHandler-component) or [defined inline as lambdas](https://github.com/Dmitrii-Russu-Labs-Snippets/spring-rest-security-entrypointHandler-lambda) in the `SecurityConfig`.
 
 ---
 
