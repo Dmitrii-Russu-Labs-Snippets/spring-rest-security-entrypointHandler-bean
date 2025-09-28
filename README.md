@@ -81,6 +81,6 @@ curl -i -u jack:123 http://localhost:8080/auth/admin
 
 Related
 
-- spring-rest-security-entrypointHandler-component — handlers as separate components
+- [spring-rest-security-entrypointHandler-component](https://github.com/Dmitrii-Russu-Labs-Snippets/spring-rest-security-entrypointHandler-component) — handlers as separate components  
 
-- spring-rest-security-entrypointHandler-lambda — compact implementation using lambdas in SecurityConfig
+- [spring-rest-security-entrypointHandler-lambda](https://github.com/Dmitrii-Russu-Labs-Snippets/spring-rest-security-entrypointHandler-lambda) — compact implementation using lambdas in SecurityConfig  
